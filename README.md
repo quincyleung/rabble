@@ -1,1 +1,3 @@
-# homework-quincyleung
+# CMSC 22000 Homework
+
+Quincy Leung (quincyleung)
