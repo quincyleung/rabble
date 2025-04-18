@@ -19,3 +19,22 @@ I asked ChatGPT: "In a Django template, how can I show different
 buttons depending on whether the user is logged in". It 
 instructed me to use {% if user.is_authenticated %} and add the
 different buttons.
+
+--Homework #2--
+Task 1: Implementing the models
+I wrote User, UserFollower, Community, CommunityMember, and 
+SubRabble manually, and prompted ChatGPT the way it was 
+suggested in the instructions for the rest, namely by asking it 
+the following: "Please write a Django model corresponding to the 
+following table:[insert table]". I then made some changes with 
+the names and removed extra code. I also asked ChatGPT how to add
+custom fields to the existing User model, as well as what an 
+error meant when I tried to start the server. It advised me to 
+resolve it by adding a unique related_name where two or more 
+relationships in a model point to the same model.
+
+Task 2: Enabling the models
+I asked ChatGPT: "Can you give me a hint on how to add models to 
+the Django admin site using the Django way?" It told me that 
+Django expects me to register my models in admin.py and gave me 
+a basic template.
