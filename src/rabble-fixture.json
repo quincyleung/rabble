@@ -1,0 +1,242 @@
+[
+{
+    "model": "rabble.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$DDQtWJfOZK12HfG8i503sq$SLkolCO4u0RvKyWqGshLOd1Dax5Vhu2Ly1rhzj2eViw=",
+        "last_login": "2025-04-23T22:31:36.916Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@example.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-04-08T23:19:39.694Z",
+        "bio": null,
+        "interests": null,
+        "avatar_url": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "rabble.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$a4or4xyxYN3Brq56oUlwc8$Yvo/SJ7OV2JONW8RKq5lGJg7YqJu/ApxXMYaKd0Gl9U=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "sam",
+        "first_name": "Sam",
+        "last_name": "",
+        "email": "sam@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-23T22:50:46.088Z",
+        "bio": null,
+        "interests": null,
+        "avatar_url": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "rabble.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$7wS1Habk4YW9bpCWl2o5WG$T7p0woq+em3VPCcoF4NnNNA5O5FHnjMcT8MsxngN7Fs=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "alex",
+        "first_name": "Alex",
+        "last_name": "",
+        "email": "alex@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-23T22:51:48.456Z",
+        "bio": null,
+        "interests": null,
+        "avatar_url": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "rabble.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$KFObQtOBgu5tcT0gcz6mAd$w1lj1DXcqTHjvH/B+i0wJeRJk6gBoQuwEUeYtNgtQHg=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "chris",
+        "first_name": "Chris",
+        "last_name": "",
+        "email": "chris@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-23T22:52:36.549Z",
+        "bio": null,
+        "interests": null,
+        "avatar_url": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "rabble.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$f1MEW0QeUpsJbLH0gMCA8V$TYHRVajorfE+vifVGhuHP2HYXoFF6ttDWgwOx73vC3g=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "morgan",
+        "first_name": "Morgan",
+        "last_name": "",
+        "email": "morgan@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-23T22:53:07.741Z",
+        "bio": null,
+        "interests": null,
+        "avatar_url": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "rabble.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$IvjxXXUbhHpvljXYNlKAjy$+APX8SYRGuVYwKaXGg59dWPWtWYs1Qduy3WxfDr8yF8=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "drew",
+        "first_name": "Drew",
+        "last_name": "",
+        "email": "drew@example.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-23T22:53:52.285Z",
+        "bio": null,
+        "interests": null,
+        "avatar_url": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "rabble.community",
+    "pk": 2,
+    "fields": {
+        "name": "default",
+        "owner": 2,
+        "admins": []
+    }
+},
+{
+    "model": "rabble.subrabble",
+    "pk": 1,
+    "fields": {
+        "name": "cs-courses",
+        "display_name": "CS Courses",
+        "description": "A place to discuss CS courses and share resources.",
+        "community": 2,
+        "public": true,
+        "allow_anonymous": false
+    }
+},
+{
+    "model": "rabble.subrabble",
+    "pk": 2,
+    "fields": {
+        "name": "python",
+        "display_name": "Python",
+        "description": "A place to discuss Python programming and share resources.",
+        "community": 2,
+        "public": true,
+        "allow_anonymous": false
+    }
+},
+{
+    "model": "rabble.subrabble",
+    "pk": 3,
+    "fields": {
+        "name": "web-dev",
+        "display_name": "Web Dev",
+        "description": "A place to discuss web development and share resources.",
+        "community": 2,
+        "public": true,
+        "allow_anonymous": false
+    }
+},
+{
+    "model": "rabble.post",
+    "pk": 1,
+    "fields": {
+        "title": "Hello World!",
+        "body": "",
+        "subrabble": 1,
+        "user": 3,
+        "created_at": "2025-04-23T23:02:29.810Z",
+        "anonymous": false
+    }
+},
+{
+    "model": "rabble.post",
+    "pk": 2,
+    "fields": {
+        "title": "Debugging help",
+        "body": "",
+        "subrabble": 1,
+        "user": 3,
+        "created_at": "2025-04-23T23:02:58.503Z",
+        "anonymous": false
+    }
+},
+{
+    "model": "rabble.post",
+    "pk": 3,
+    "fields": {
+        "title": "Fun projects to work on",
+        "body": "",
+        "subrabble": 1,
+        "user": 5,
+        "created_at": "2025-04-23T23:03:33.962Z",
+        "anonymous": false
+    }
+},
+{
+    "model": "rabble.comment",
+    "pk": 1,
+    "fields": {
+        "body": "Hiii",
+        "post": 1,
+        "user": 5,
+        "created_at": "2025-04-23T23:05:28.479Z",
+        "anonymous": false
+    }
+},
+{
+    "model": "rabble.comment",
+    "pk": 2,
+    "fields": {
+        "body": "Bonjour",
+        "post": 1,
+        "user": 2,
+        "created_at": "2025-04-23T23:05:50.191Z",
+        "anonymous": false
+    }
+},
+{
+    "model": "rabble.comment",
+    "pk": 3,
+    "fields": {
+        "body": "Nihao",
+        "post": 1,
+        "user": 4,
+        "created_at": "2025-04-23T23:06:13.602Z",
+        "anonymous": false
+    }
+}
+]

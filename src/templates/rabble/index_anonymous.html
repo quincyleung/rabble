@@ -1,0 +1,5 @@
+{% extends "rabble/base.html" %}
+{% block content %}
+  <h2>Welcome to Rabble!</h2>
+  <p>Please <a href="{% url 'login' %}?next=/">log in</a> to view or create content.</p>
+{% endblock %}

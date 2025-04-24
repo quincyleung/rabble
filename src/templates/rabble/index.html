@@ -3,7 +3,23 @@
 {% block content %}
     {% if user.is_authenticated %}
         <p>Welcome {{ user.username }}!</p>
+        {% if subrabbles %}
+        <ul class="list-group">
+          {% for sr in subrabbles %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <strong>!{{ sr.name }}</strong> — {{ sr.display_name }}<br>
+                <small class="text-muted">{{ sr.description }}</small>
+              </div>
+              <a href="{% url 'subrabble-detail' sr.name %}" class="btn btn-sm btn-outline-primary">View</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No subRabbles yet. Create one to get started!</p>
+      {% endif %}
     {% else %}
-        <p>Welcome to Rabble!</p>
+      <p>Welcome to Rabble!</p>
+      <p>Please <a href="{% url 'login' %}?next=/">log in</a> to view or create content.</p>
     {% endif %}
 {% endblock content %}
