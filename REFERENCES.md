@@ -38,3 +38,22 @@ I asked ChatGPT: "Can you give me a hint on how to add models to
 the Django admin site using the Django way?" It told me that 
 Django expects me to register my models in admin.py and gave me 
 a basic template.
+
+--Homework #3--
+Task 3: subRabble Detail (and Posts List) View
+I asked ChatGPT how to attach comment and like counts to each post if those were 
+defined in separate models. It recommended calculating the counts in the view 
+and adding them to the context manually, which I did.
+
+Task 4: Post Detail View
+Similarly, I asked ChatGPT how to show comments related to a post when the 
+Comment model is separate from the Post model. It suggested using 
+Comment.objects.filter(post=post) in the view and passing that into the 
+template context.
+
+Extra Task: Limiting Actions by User
+To enforce login requirements and user-specific editing rights, I asked ChatGPT 
+questions like “How can I restrict views to logged-in users in Django?” and 
+“How can I show a button in a Django template only if the current user is the 
+post's author?” It guided me to use @login_required, request.user, and 
+conditional logic in the template. 
