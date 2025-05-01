@@ -44,12 +44,17 @@ def post_detail(request, name, pk):
     likes_count = Like.objects.filter(post=post).count()
     comments_count = comments.count()
 
+    user_has_liked = False
+    if request.user.is_authenticated:
+        user_has_liked = Like.objects.filter(post=post, user=request.user).exists()
+
     context = {
         "subrabble": subrabble,
         "post": post,
         "comments": comments,
         "likes_count": likes_count,
-        "comments_count": comments_count
+        "comments_count": comments_count,
+        "user_has_liked": user_has_liked,
     }
 
     return render(request, "rabble/post_detail.html", context)

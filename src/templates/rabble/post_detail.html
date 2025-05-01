@@ -3,6 +3,9 @@
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
+
+{% csrf_token %}
+
     <div class="mb-4 d-flex justify-content-between align-items-center">
         <a href="{% url 'subrabble-detail' subrabble.name %}" class="text-decoration-none text-muted">
             ← Back to !{{ subrabble.name }} — {{ subrabble.display_name }}
@@ -15,7 +18,11 @@
         <p>{{ post.body }}</p>
 
         <div class="d-flex justify-content-start align-items-center gap-3 mt-4">
-            <span>👍 {{ likes_count }}</span>
+            <span id="like-display"
+                data-liked="{{ user_has_liked|yesno:"true,false" }}"
+                style="color: {% if user_has_liked %}blue{% else %}gray{% endif %}; cursor: pointer;">
+                👍 <span id="like-count">{{ likes_count }}</span>
+            </span>
             <span>💬 {{ comments_count }}</span>
             {% if post.user == user %}
                 <a href="{% url 'post-edit' subrabble.name post.pk %}" class="btn btn-outline-secondary btn-sm ms-2">Edit Post</a>
@@ -41,4 +48,40 @@
     {% else %}
         <p>No comments yet. Be the first to comment!</p>
     {% endif %}
+
+    <script>
+        const likeDisplay = document.getElementById("like-display");
+        const likeCount = document.getElementById("like-count");
+        const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+    
+        likeDisplay.addEventListener("click", () => {
+            const isLiked = likeDisplay.dataset.liked === "true";
+            const postId = {{ post.id }};
+            const subrabbleSlug = "{{ subrabble.name }}";
+            const currentUser = "{{ user.username }}";
+    
+            fetch(`/api/subrabbles/!${subrabbleSlug}/posts/${postId}/likes/`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": csrftoken
+                },
+                body: JSON.stringify({ user: currentUser })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Request failed");
+                }
+                return response.json();
+            })
+            .then(data => {
+                likeCount.textContent = data.like_count;
+                likeDisplay.dataset.liked = data.liked;
+                likeDisplay.style.color = data.liked ? "blue" : "gray";
+            })
+            .catch(err => {
+                console.error("Like toggle failed:", err);
+            });
+        });
+    </script>
 {% endblock %}

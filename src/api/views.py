@@ -66,3 +66,33 @@ def subrabble_post_detail(request, identifier, post_pk):
     elif request.method == 'DELETE':
         post.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+@api_view(['POST'])
+def toggle_like(request, identifier, post_pk):
+    username = request.data.get('user')
+    if not username:
+        return Response({"error": "User is required"}, status=status.HTTP_400_BAD_REQUEST)
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        return Response({"error": "User does not exist"}, status=status.HTTP_404_NOT_FOUND)
+    
+    try:
+        subrabble = SubRabble.objects.get(name=identifier)
+        post = Post.objects.get(pk=post_pk, subrabble=subrabble)
+    except (SubRabble.DoesNotExist, Post.DoesNotExist):
+        return Response(status=status.HTTP_404_NOT_FOUND)
+        
+    like, created = Like.objects.get_or_create(user=user, post=post)
+    if not created:
+        like.delete()
+        liked = False
+    else:
+        liked = True
+
+    like_count = Like.objects.filter(post=post).count()
+
+    return Response({
+        'liked': liked,
+        'like_count': like_count
+    }, status=status.HTTP_200_OK)
