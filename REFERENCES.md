@@ -57,3 +57,11 @@ questions like “How can I restrict views to logged-in users in Django?” and
 “How can I show a button in a Django template only if the current user is the 
 post's author?” It guided me to use @login_required, request.user, and 
 conditional logic in the template. 
+
+--Homework #4--
+Task 1-2: Adding API endpoints and Sample Requests
+I used ChatGPT to help me debug a 400 Bad Request error while implementing a 
+POST endpoint. Specifically I asked: "Why did I get a HTTP 400 Bad Request 
+saying the field subrabble is required when I make a POST request?". It 
+instructed me to mark the field as read-only in my PostSerializer so the DRF 
+doesn't expect it in the request body.
