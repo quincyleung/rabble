@@ -39,7 +39,7 @@ class SubRabbleFactory(DjangoModelFactory):
     class Meta:
         model = SubRabble
 
-    name = Faker('word', unique=True)
+    name = Sequence(lambda n: f"{fake.word()}-{n}")
     display_name = factory.LazyAttribute(lambda obj: obj.name.title())
     description = Faker('text', max_nb_chars=150)
     community = SubFactory(CommunityFactory)
