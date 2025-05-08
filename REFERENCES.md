@@ -65,3 +65,11 @@ POST endpoint. Specifically I asked: "Why did I get a HTTP 400 Bad Request
 saying the field subrabble is required when I make a POST request?". It 
 instructed me to mark the field as read-only in my PostSerializer so the DRF 
 doesn't expect it in the request body.
+
+--Homework #5--
+Task 1-2: Creating Factories and Writing tests for CRUD views
+I used ChatGPT to help me debug issues related to generating unique fake data 
+using the Faker library in my factory classes. Specifically, I asked: "How can 
+I generate a unique subrabble names for a Django model using factory?" 
+ChatGPT suggested using a Sequence (eg. name = Sequence(lambda n: 
+f"subrabble-{n}")) to avoid unique constraint errors during batch creation.
