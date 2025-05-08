@@ -51,14 +51,14 @@ class SubRabbleAdmin(models.Model):
 class Post(models.Model):
     title = models.TextField()
     body = models.TextField()
-    subrabble = models.ForeignKey(SubRabble, on_delete=models.CASCADE)
+    subrabble = models.ForeignKey(SubRabble, on_delete=models.CASCADE, related_name="posts")
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     anonymous = models.BooleanField(default=False)
 
 class Comment(models.Model):
     body = models.TextField()
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     anonymous = models.BooleanField(default=False)
